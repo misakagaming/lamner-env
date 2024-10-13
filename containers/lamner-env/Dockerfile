@@ -39,7 +39,6 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 #RUN conda env update -f environment.yml &&\
 #    conda clean -tipy
 
-COPY lamner-c .
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
