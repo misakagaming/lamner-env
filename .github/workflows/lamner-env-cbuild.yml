@@ -8,7 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: misakagaming/lamner_env
+  IMAGE_NAME: misakagaming/lamner-env
   VERSION: latest
 
 jobs:
