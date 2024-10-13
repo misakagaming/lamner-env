@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
@@ -9,7 +9,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         cmake \
         ninja-build \
         build-essential \
-        python3.8 \
+        python3.6 \
         python3-dev \
         python3-pip \
         python3-venv \
