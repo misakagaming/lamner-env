@@ -40,6 +40,8 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 #    conda clean -tipy
 
 
+COPY lamner-c .
+
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
