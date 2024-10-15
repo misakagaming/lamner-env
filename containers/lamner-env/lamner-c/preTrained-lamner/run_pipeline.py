@@ -36,9 +36,9 @@ def main():
   args = parser.parse_args()
   
   #train_lm-> preprocess code, make correct directories
-  train_language_model(args)
-  train_ner_model(args)
-  get_embeds(args)
+  #train_language_model(args)
+  #train_ner_model(args)
+  #get_embeds(args)
   run_seq2seq(args)
 
   
