@@ -2,11 +2,6 @@ FROM nvidia/cuda:11.0.3-cudnn8-devel-ubuntu16.04
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-	&& apt-get -y install --no-install-recommends software-properties-common \
-	&& add-apt-repository ppa:deadsnakes/ppa \
-	&& apt-get update \
-	&& apt-get -y install --no-install-recommends install python3\.6
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
@@ -15,6 +10,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         cmake \
         ninja-build \
         build-essential \
+		checkinstall \
+		python3 \
         python3-dev \
         python3-pip \
         python3-venv \
@@ -22,7 +19,17 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 		libstdc++6 \
 		gcc-multilib\
 		libc6 \
+		libreadline-gplv2-dev \
+		libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
+	
+RUN wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz
+RUN tar xvf Python-3.6.0.tar.xz
+
+RUN cd Python-3.6.0/
+RUN ./configure
+RUN make altinstall
+RUN cd ..
 
 
 RUN python3 -m pip install --upgrade pip && \
