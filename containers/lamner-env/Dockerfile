@@ -15,7 +15,13 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         build-essential \
 		checkinstall \
 		software-properties-common \
-		python3 \
+    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
+	
+RUN add-apt-repository ppa:deadsnakes/ppa
+
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+		python3.6 \
         python3-dev \
         python3-pip \
         python3-venv \
@@ -23,13 +29,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 		libstdc++6 \
 		gcc-multilib\
 		libc6 \
-    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
-	
-RUN add-apt-repository ppa:deadsnakes/ppa
-
-RUN apt-get update
-
-RUN apt-get install python3.6
+		 && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 	
 
 
