@@ -5,12 +5,6 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 
 
-RUN add-apt-repository ppa:deadsnakes/ppa
-
-RUN apt-get update
-
-RUN apt-get install python3.6
-
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
