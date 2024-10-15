@@ -19,8 +19,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 		libstdc++6 \
 		gcc-multilib\
 		libc6 \
-		libreadline-gplv2-dev \
-		libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 	
 RUN wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz
