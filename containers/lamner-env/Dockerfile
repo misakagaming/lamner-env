@@ -25,7 +25,8 @@ RUN wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz
 RUN tar xvf Python-3.6.0.tar.xz
 
 RUN cd Python-3.6.0/
-RUN configure
+RUN chmod +x configure
+RUN ./configure
 RUN make altinstall
 RUN cd ..
 
