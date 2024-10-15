@@ -2,7 +2,8 @@ FROM nvidia/cuda:11.0.3-cudnn8-devel-ubuntu16.04
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-RUN apt-get install software-properties-common \
+RUN apt-get update \
+	&& apt-get install software-properties-common \
 	&& add-apt-repository ppa:deadsnakes/ppa \
 	&& apt-get update \
 	&& apt-get install python3.6
