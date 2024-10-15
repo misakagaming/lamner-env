@@ -22,7 +22,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         python3-dev \
         python3-pip \
         python3-venv \
-        python-is-python3 \
 		libstdc++6 \
 		gcc-multilib\
 		libc6 \
