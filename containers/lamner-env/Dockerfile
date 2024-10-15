@@ -4,7 +4,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-	&& apt-get upgrade && apt-get install software-properties-common && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+	&&  apt-get install software-properties-common && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 
 RUN add-apt-repository ppa:deadsnakes/ppa
