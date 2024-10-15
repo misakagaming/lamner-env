@@ -2,10 +2,10 @@ FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-RUN sudo apt-get install software-properties-common \
-	&& sudo add-apt-repository ppa:deadsnakes/ppa \
-	&& sudo apt-get update \
-	&& sudo apt-get install python3.6
+RUN apt-get install software-properties-common \
+	&& add-apt-repository ppa:deadsnakes/ppa \
+	&& apt-get update \
+	&& apt-get install python3.6
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
