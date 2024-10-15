@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.4.3-devel-ubuntu18.04
+FROM nvidia/cuda:11.2.2-devel-ubuntu20.04
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
@@ -22,6 +22,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         python3-dev \
         python3-pip \
         python3-venv \
+		python-is-python3 \
 		libstdc++6 \
 		gcc-multilib\
 		libc6 \
