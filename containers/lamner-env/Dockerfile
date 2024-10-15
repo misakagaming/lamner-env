@@ -6,7 +6,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 	&& apt-get -y install --no-install-recommends software-properties-common \
 	&& add-apt-repository ppa:deadsnakes/ppa \
 	&& apt-get update \
-	&& apt-get -y install --no-install-recommends install python3.6
+	&& apt-get -y install --no-install-recommends install python3\.6
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
