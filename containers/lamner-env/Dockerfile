@@ -3,9 +3,9 @@ FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 
-RUN apt-get update && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
+RUN apt-get update
 
-RUN apt-get upgrade && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
+RUN apt-get upgrade
 
 RUN apt-get install software-properties-common && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
