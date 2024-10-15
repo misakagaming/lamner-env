@@ -16,7 +16,7 @@ from six.moves import map
 from src.train_lm import train_language_model
 from src.train_ner import train_ner_model
 from src.extract_embeds import get_embeds
-from run import main
+from run import seq2seq
 
 def main():
   set_seed()
