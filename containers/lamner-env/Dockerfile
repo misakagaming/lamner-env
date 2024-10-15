@@ -3,7 +3,7 @@ FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 
-RUN apt-get update && add-apt-repository ppa:deadsnakes/ppa && export DEBIAN_FRONTEND=noninteractive \
+RUN apt-get update && apt-get install software-properties-common && add-apt-repository ppa:deadsnakes/ppa && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
         git \
         wget \
