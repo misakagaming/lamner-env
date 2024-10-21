@@ -19,9 +19,9 @@ RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
 		python3.6-distutils \
-        python3-dev \
-        python3-pip \
-        python3-venv \
+        python3.6-dev \
+        python3.6-pip \
+        python3.6-venv \
 		python-is-python3 \
 		libstdc++6 \
 		gcc-multilib\
@@ -29,8 +29,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 		 && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 	
 
-RUN python3 -m pip install --upgrade pip && \
-    python3 -m venv /opt/python3/venv/base
+RUN python3.6 -m pip install --upgrade pip && \
+    python3.6 -m venv /opt/python3/venv/base
 	
 
 
