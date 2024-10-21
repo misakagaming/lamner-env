@@ -62,7 +62,7 @@ def evaluate(model, iterator, criterion):
     for i, batch in enumerate(iterator):
       src, src_len = batch.code
       trg = batch.summary
-      output = model(src, src_len, trg, 0)
+      output = model(src, src_len.cpu(), trg, 0)
       output_dim = output.shape[-1]      
       output = output[1:].view(-1, output_dim)
       trg = trg[1:].view(-1)
