@@ -30,13 +30,13 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 	
 
 
-RUN python3.6 -m pip install --upgrade pip && \
-    python3.6 -m venv /opt/python3/venv/base
+RUN python3 -m pip install --upgrade pip && \
+    python3 -m venv /opt/python3/venv/base
 	
 
 
 COPY requirements.txt /opt/python3/venv/base/
-RUN python3.6 -m pip install --no-cache-dir -r /opt/python3/venv/base/requirements.txt
+RUN /opt/python3/venv/base/bin/python3 -m pip install --no-cache-dir -r /opt/python3/venv/base/requirements.txt
 
 ENV CONDA_DIR /opt/conda
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
@@ -51,6 +51,8 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 
 
 COPY lamner-c .
+
+COPY requirements.txt .
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
