@@ -1,3 +1,4 @@
+wheel
 flair==0.9
 torch==1.6.0
 torchtext==0.6.0
@@ -8,4 +9,3 @@ git+https://github.com/casics/spiral.git
 gdown==3.12.2
 numpy
 pandas
-wheel
