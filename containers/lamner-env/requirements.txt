@@ -1,14 +1,9 @@
 wheel
 flair==0.9
-torch==1.7.1
-torchvision==0.8.2
-torchaudio==0.7.2
+torch==1.6.0
 torchtext==0.6.0
-cudatoolkit==11
 six==1.14.0
 rouge==1.0.0
 javalang==0.13.0
 git+https://github.com/casics/spiral.git
 gdown==3.12.2
-numpy
-pandas
