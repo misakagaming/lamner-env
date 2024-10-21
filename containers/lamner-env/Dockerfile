@@ -29,13 +29,13 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 		 && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 	
 
-RUN python3.6 -m pip install --upgrade pip && \
-    python3.6 -m venv /opt/python3/venv/base
+RUN python3.6 -m pip install --upgrade pip \
+    && python3.6 -m venv /opt/python3/venv/base
 	
 
 
 COPY requirements.txt /opt/python3/venv/base/
-RUN python3.6 -m pip install --no-cache-dir -r /opt/python3/venv/base/requirements.txt
+#RUN python3.6 -m pip install --no-cache-dir -r /opt/python3/venv/base/requirements.txt
 
 ENV CONDA_DIR /opt/conda
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
