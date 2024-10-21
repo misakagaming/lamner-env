@@ -20,7 +20,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
 		python3.6-distutils \
         python3.6-dev \
-        python3.6-pip \
+        python3-pip \
         python3.6-venv \
 		python-is-python3 \
 		libstdc++6 \
