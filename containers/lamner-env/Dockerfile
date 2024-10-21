@@ -28,7 +28,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 		libc6 \
 		 && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 	
-RU
 
 RUN python3 -m pip install --upgrade pip && \
     python3 -m venv /opt/python3/venv/base
