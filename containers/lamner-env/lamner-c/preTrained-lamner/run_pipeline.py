@@ -13,9 +13,9 @@ from src.encoder import Encoder
 from src.decoder import Decoder
 from src.seq2seq import Seq2Seq, train, evaluate, get_preds
 from six.moves import map
-from src.train_lm import train_language_model
+"""from src.train_lm import train_language_model
 from src.train_ner import train_ner_model
-from src.extract_embeds import get_embeds
+from src.extract_embeds import get_embeds"""
 from run import run_seq2seq
 
 def main():
