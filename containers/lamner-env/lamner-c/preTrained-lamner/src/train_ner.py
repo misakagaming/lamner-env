@@ -251,7 +251,7 @@ def prepare_data_for_ner_training():
 def train_ner_model(args):
   prepare_data_for_ner_training()
   columns = {0: 'text', 1: 'ner'}
-  data_folder = 'ner_data'
+  data_folder = './ner_data'
   corpus: Corpus = ColumnCorpus(data_folder, columns,
                               train_file='train.txt',
                               test_file='test.txt',
