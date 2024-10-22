@@ -41,14 +41,14 @@ def write_files_language_model(data, fname, COL_TO_USE):
       f.write(each+"\n")
 
 def prepare_data_for_lm_training(args):
-  if not os.path.exists("corpus"):
-    os.makedirs("corpus")
-    if not os.path.exists("corpus/train"):
-      os.makedirs("corpus/train")
+  if not os.path.exists("./corpus"):
+    os.makedirs("./corpus")
+  if not os.path.exists("./corpus/train"):
+    os.makedirs("./corpus/train")
   
-  train_data = pd.read_csv("raw_data/train.csv")
-  test_data = pd.read_csv("raw_data/test.csv")  
-  valid_data = pd.read_csv("raw_data/valid.csv")
+  train_data = pd.read_csv("./raw_data/train.csv")
+  test_data = pd.read_csv("./raw_data/test.csv")  
+  valid_data = pd.read_csv("./raw_data/valid.csv")
     
   train_data["codeTokenized"] = train_data["code"].apply(tokenize_code)
   test_data["codeTokenized"] = test_data["code"].apply(tokenize_code)
@@ -58,15 +58,15 @@ def prepare_data_for_lm_training(args):
   if args.duplicates:
       train_data, test_data, valid_data = drop_duplicates(train_data, test_data, valid_data, "codeTokenized")
       COL_TO_USE = "codeTokenized"
-  if not os.path.exists("data_to_use"):
-    os.makedirs("data_to_use")
+  if not os.path.exists("./data_to_use"):
+    os.makedirs("./data_to_use")
 
-  write_files_language_model(train_data, "corpus/train/train_split1.txt", COL_TO_USE)
-  write_files_language_model(test_data, "corpus/test.txt", COL_TO_USE)
-  write_files_language_model(valid_data, "corpus/valid.txt", COL_TO_USE)
-  train_data.to_csv("data_to_use/train.csv", index=False)
-  test_data.to_csv("data_to_use/test.csv", index=False)
-  valid_data.to_csv("data_to_use/valid.csv", index=False)
+  write_files_language_model(train_data, "./corpus/train/train_split1.txt", COL_TO_USE)
+  write_files_language_model(test_data, "./corpus/test.txt", COL_TO_USE)
+  write_files_language_model(valid_data, "./corpus/valid.txt", COL_TO_USE)
+  train_data.to_csv("./data_to_use/train.csv", index=False)
+  test_data.to_csv("./data_to_use/test.csv", index=False)
+  valid_data.to_csv("./data_to_use/valid.csv", index=False)
 
 
 def train_language_model(args):
