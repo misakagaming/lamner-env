@@ -209,7 +209,6 @@ def generate_syntax_data(code_snippet):
 
 def prepare_each_data(fname, typee):
   codes = pd.read_csv(fname)
-  print(codes)
   code = []
   dtype = []
   errs = 0
