@@ -145,15 +145,15 @@ def get_lm_embeds(code_snippet, indexes, processed_final_code, fin_tokens, fin_e
 def process_and_extract(args, typee, char_lm_embeddings, model):
 
   if typee=="train":
-    proc_code = pd.read_csv("data_to_use/train.csv")["code"].values
-    summaries = pd.read_csv("data_to_use/train.csv")["summary"].values
+    proc_code = pd.read_csv("./data_to_use/train.csv")["code"].values
+    summaries = pd.read_csv("./data_to_use/train.csv")["summary"].values
   elif typee=="test":
-    proc_code = pd.read_csv("data_to_use/test.csv")["code"].values
-    summaries = pd.read_csv("data_to_use/test.csv")["summary"].values
+    proc_code = pd.read_csv("./data_to_use/test.csv")["code"].values
+    summaries = pd.read_csv("./data_to_use/test.csv")["summary"].values
   else:
     
-    proc_code = pd.read_csv("data_to_use/valid.csv")["code"].values
-    summaries = pd.read_csv("data_to_use/valid.csv")["summary"].values
+    proc_code = pd.read_csv("./data_to_use/valid.csv")["code"].values
+    summaries = pd.read_csv("./data_to_use/valid.csv")["summary"].values
 
   fin_tokens =[]
   fin_embeds_lm =[]
@@ -187,7 +187,7 @@ def process_and_extract(args, typee, char_lm_embeddings, model):
       tokens_to_write_lm.append(lm_vector)
       tokens_to_write_ner.append(ner_vector)
       #tot = tot+ 1
-    with open("custom_embeddings/semantic-embeds.txt", "w", encoding="utf-8") as f:
+    with open("./custom_embeddings/semantic-embeds.txt", "w", encoding="utf-8") as f:
       for i in range(len(tokens_to_write_lm)):
         lm_str =""
         for each_dim in tokens_to_write_lm[i]:
@@ -196,7 +196,7 @@ def process_and_extract(args, typee, char_lm_embeddings, model):
         lm_str = str(unique_tokens[i]) + " " + lm_str+"\n"
         f.write(lm_str)
   
-    with open("custom_embeddings/syntax-embeds.txt", "w", encoding="utf-8") as f:
+    with open("./custom_embeddings/syntax-embeds.txt", "w", encoding="utf-8") as f:
       for i in range(len(tokens_to_write_ner)):
         ner_str =""
         for each_dim in tokens_to_write_ner[i]:
@@ -210,11 +210,11 @@ def process_and_extract(args, typee, char_lm_embeddings, model):
   new_df["summary"] = new_df["summary"].apply(lambda x: " ".join(x.split()[:args.comment_len]).strip())
 
   if typee=="train":
-    new_df.to_csv("data_seq2seq/train_seq.csv", index=False)
+    new_df.to_csv("./data_seq2seq/train_seq.csv", index=False)
   elif typee=="test":
-    new_df.to_csv("data_seq2seq/test_seq.csv", index=False)
+    new_df.to_csv("./data_seq2seq/test_seq.csv", index=False)
   else:
-    new_df.to_csv("data_seq2seq/valid_seq.csv", index=False)
+    new_df.to_csv("./data_seq2seq/valid_seq.csv", index=False)
 
 def get_embeds(args):
   char_lm_embeddings = FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt')

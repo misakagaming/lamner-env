@@ -231,21 +231,21 @@ def prepare_each_data(fname, typee):
       print("Num errors:",str(errs))
       continue
   if typee=="train":
-    namee= "ner_data/train.txt"
+    namee= "./ner_data/train.txt"
   elif typee=="test":
-    namee= "ner_data/test.txt"
+    namee= "./ner_data/test.txt"
   else:
-    namee= "ner_data/valid.txt"
+    namee= "./ner_data/valid.txt"
   with open(namee, "w", encoding="utf-8", errors="ignore") as f:
     for i in code:
       f.write(i)
 
 def prepare_data_for_ner_training():
-  if not os.path.exists("ner_data"):
-    os.makedirs("ner_data")
-  prepare_each_data("data_to_use/train.csv", "train")
-  prepare_each_data("data_to_use/test.csv", "test")
-  prepare_each_data("data_to_use/valid.csv", "valid")
+  if not os.path.exists("./ner_data"):
+    os.makedirs("./ner_data")
+  prepare_each_data("./data_to_use/train.csv", "train")
+  prepare_each_data("./data_to_use/test.csv", "test")
+  prepare_each_data("./data_to_use/valid.csv", "valid")
   
 
 def train_ner_model(args):
