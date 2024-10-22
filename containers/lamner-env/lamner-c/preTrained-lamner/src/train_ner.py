@@ -213,9 +213,9 @@ def prepare_each_data(fname, typee):
   code = []
   dtype = []
   errs = 0
-  for cod in codes:
+  for index, cod in codes.iterrows():
     try:
-      c, t =generate_syntax_data(cod)
+      c, t =generate_syntax_data(cod['codeTokenized'])
       for i in range(len(c)):
         if c[i].strip('"')=="{":
           t[i] = "body-start-delimiter"
