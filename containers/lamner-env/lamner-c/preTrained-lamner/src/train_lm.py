@@ -63,7 +63,7 @@ def prepare_data_for_lm_training(args):
 
   write_files_language_model(train_data, "corpus/train/train_split1.txt", COL_TO_USE)
   write_files_language_model(test_data, "corpus/test.txt", COL_TO_USE)
-  write_files_language_model(valid_data, "corpus/dev.txt", COL_TO_USE)
+  write_files_language_model(valid_data, "corpus/valid.txt", COL_TO_USE)
   train_data.to_csv("data_to_use/train.csv", index=False)
   test_data.to_csv("data_to_use/test.csv", index=False)
   valid_data.to_csv("data_to_use/valid.csv", index=False)
