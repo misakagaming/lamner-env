@@ -95,7 +95,7 @@ def get_lm_embeds(code_snippet, indexes, processed_final_code, fin_tokens, fin_e
   # embed sentence
   char_lm_embeddings.embed(sentence)
   for token in sentence:
-    lm_embed.append(token.cpu().embedding.detach().numpy())
+    lm_embed.append(token.embedding.cpu().detach().numpy())
   
   #sequence tagger
   sentence = Sentence(code_snippet)
