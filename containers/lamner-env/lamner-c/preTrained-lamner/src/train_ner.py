@@ -209,17 +209,13 @@ def generate_syntax_data(code_snippet):
 
 def prepare_each_data(fname, typee):
   codes = pd.read_csv(fname)
+  print(codes)
   code = []
   dtype = []
   errs = 0
-  j=0
   for cod in codes:
-    j += 1
-    print(j)
     try:
       c, t =generate_syntax_data(cod)
-      print(c)
-      print(t)
       for i in range(len(c)):
         if c[i].strip('"')=="{":
           t[i] = "body-start-delimiter"
