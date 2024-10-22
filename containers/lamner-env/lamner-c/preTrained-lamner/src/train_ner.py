@@ -255,7 +255,7 @@ def train_ner_model(args):
   corpus: Corpus = ColumnCorpus(data_folder, columns,
                               train_file='train.txt',
                               test_file='test.txt',
-                              dev_file='dev.txt')
+                              dev_file='valid.txt')
   tag_type = 'ner'
   tag_dictionary = corpus.make_tag_dictionary(tag_type=tag_type)
   embedding_types: List[TokenEmbeddings] = [
