@@ -115,7 +115,7 @@ def get_lm_embeds(code_snippet, indexes, processed_final_code, fin_tokens, fin_e
   for i in indexes:
     intermediate_tokens.append(splitted_code[i])
     intermediate_embeddings.append(lm_embed[i])
-    intermediate_embeddings_ner.append(ner_embed[i].detach().numpy())
+    intermediate_embeddings_ner.append(ner_embed[i].detach().cpu().numpy())
   
   #prc_code = " ".join(intermediate_tokens).strip(" ")
   
