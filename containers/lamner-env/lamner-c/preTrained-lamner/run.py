@@ -62,6 +62,7 @@ def run_seq2seq(args):
   #                                   unk_init = torch.Tensor.normal_)
    #*****************************************************************************************************
   #*****************************************************************************************************
+  print("test")
   SRC.build_vocab(train_data, 
                      max_size = MAX_VOCAB_SIZE, 
                      vectors = custom_embeddings_semantic_encoder
