@@ -51,6 +51,7 @@ def run_seq2seq(args):
           validation='valid_seq.csv', test='test_seq.csv', format='CSV',
           fields=[('code', SRC), ('summary', TRG)])
   #*****************************************************************************************************
+  print("embeds")
   custom_embeddings_semantic_encoder = vocab.Vectors(name = 'custom_embeddings/semantic_embeds.txt',
                                       cache = 'custom_embeddings_semantic_encoder',
                                       unk_init = torch.Tensor.normal_) 
