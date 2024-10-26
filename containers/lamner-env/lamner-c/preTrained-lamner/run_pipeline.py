@@ -29,18 +29,20 @@ def main():
   parser.add_argument("--epochs", type=int, default=200, help="Epochs to use for seq2seq model")
   parser.add_argument("--static", type=bool, default=False, help="Keep weigts static after one epoch")
   parser.add_argument("--learning_rate", type=float, default=0.1, help="Learning rate")
-  parser.add_argument("--infer", type=bool, default=False, help="Inference")
   parser.add_argument("--duplicates", type=bool, default=True, help="Remove Duplicates")
   parser.add_argument("--code_len", type=int, default=300, help="Set maximum code length")
   parser.add_argument("--comment_len", type=int, default=50, help="Set maximum comment length")
+  parser.add_argument('--infer', dest='infer', action='store_true')
+  parser.add_argument('--no-infer', dest='infer', action='store_false')
+  parser.set_defaults(feature=True)
   args = parser.parse_args()
   
   #train_lm-> preprocess code, make correct directories
   print(args.infer)
   if not(args.infer):
-      train_language_model(args)
-      train_ner_model(args)
-      get_embeds(args)
+    train_language_model(args)
+    train_ner_model(args)
+    get_embeds(args)
   run_seq2seq(args)
 
   
