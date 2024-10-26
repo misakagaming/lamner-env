@@ -228,8 +228,6 @@ def prepare_each_data(fname, typee):
       code.append("\n")
       dtype.append("\n")
     except:
-      errs = errs + 1
-      print("Num errors:",str(errs))
       continue
   if typee=="train":
     namee= "./ner_data/train.txt"
