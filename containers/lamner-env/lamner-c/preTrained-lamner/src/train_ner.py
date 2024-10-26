@@ -103,7 +103,6 @@ def getType(i, tree):
 
 def generate_syntax_data(code_snippet):
   tree = list(javalang.tokenizer.tokenize(code_snippet))
-  print(tree)
   first_identifier = False
   TOKEN =[]
   TYPE = []
