@@ -1,0 +1,1 @@
+"Corpus: 15000 train + 1500 dev + 1500 test sentences"
