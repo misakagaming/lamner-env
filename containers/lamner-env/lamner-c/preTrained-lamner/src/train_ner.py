@@ -214,8 +214,6 @@ def prepare_each_data(fname, typee):
   for index, cod in codes.iterrows():
     try:
       c, t =generate_syntax_data(cod["code"])
-      print(c)
-      print(t)
       for i in range(len(c)):
         if c[i].strip('"')=="{":
           t[i] = "body-start-delimiter"
