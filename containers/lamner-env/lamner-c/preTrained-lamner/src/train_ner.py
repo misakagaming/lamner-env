@@ -262,6 +262,8 @@ def train_ner_model(args):
   tagger: SequenceTagger = SequenceTagger(hidden_size=int(args.embedding_size/4),
                                         embeddings=embeddings,
                                         dropout=float(args.dropout),
+                                        word_dropout=float(args.dropout),
+                                        locked_dropout=float(args.dropout),
                                         tag_dictionary=tag_dictionary,
                                         tag_type=tag_type,
                                         use_crf=True)
