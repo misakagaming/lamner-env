@@ -259,7 +259,7 @@ def train_ner_model(args):
                                            FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
                                             ]
   embeddings: StackedEmbeddings = StackedEmbeddings(embeddings=embedding_types)
-  tagger: SequenceTagger = SequenceTagger(hidden_size=int(args.embedding_size),
+  tagger: SequenceTagger = SequenceTagger(hidden_size=int(args.embedding_size)/4,
                                         embeddings=embeddings,
                                         dropout=float(args.dropout),
                                         word_dropout=float(args.dropout),
@@ -274,4 +274,5 @@ def train_ner_model(args):
   trainer.train('resources/taggers/example-ner',
               learning_rate=0.1,
               mini_batch_size=32,
+              min_learning_rate=0.0000001,
               max_epochs=5)                                   
