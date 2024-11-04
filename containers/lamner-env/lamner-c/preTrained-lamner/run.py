@@ -13,6 +13,7 @@ from src.encoder import Encoder
 from src.decoder import Decoder
 from src.seq2seq import Seq2Seq, train, evaluate, get_preds
 from six.moves import map
+from bleu import calculate_bleu
 
 def run_seq2seq(args):
   set_seed()
@@ -32,6 +33,8 @@ def run_seq2seq(args):
   best_valid_loss = float('inf')
   cur_rouge = -float('inf')
   best_rouge = -float('inf')
+  test_rouge = 0
+  test_bleu = 0
   best_epoch = -1
   MIN_LR = 0.0000001
   MAX_VOCAB_SIZE = 50_000
@@ -171,6 +174,8 @@ def run_seq2seq(args):
   print_log('Test Loss: ' + str(round(test_loss, 2)) + ' | Test PPL: ' + str(round(math.exp(test_loss), 2)))
   p, t = get_preds(test_data, SRC, TRG, model, device)
   write_files(p,t,epoch=0, test=True)
-  
+  test_rouge = calculate_rouge(epoch=0, test=True)
+  test_bleu = calculate_bleu(epoch=0, test=True)
+  print_log('Test Rouge: ' + str(test_rouge) + ' | Test BLEU-4: ' + str(test_bleu))
 #if __name__ == '__main__':
 #  main()
