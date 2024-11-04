@@ -259,7 +259,7 @@ def train_ner_model(args):
                                            FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
                                             ]
   embeddings: StackedEmbeddings = StackedEmbeddings(embeddings=embedding_types)
-  tagger: SequenceTagger = SequenceTagger(hidden_size=int(args.embedding_size/2),
+  tagger: SequenceTagger = SequenceTagger(hidden_size=int(args.embedding_size/4),
                                         embeddings=embeddings,
                                         dropout=float(args.dropout),
                                         word_dropout=float(args.dropout),
