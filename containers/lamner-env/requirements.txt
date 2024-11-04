@@ -8,3 +8,4 @@ git+https://github.com/casics/spiral.git
 gdown==3.12.2
 pandas
 pyarrow
+nltk
