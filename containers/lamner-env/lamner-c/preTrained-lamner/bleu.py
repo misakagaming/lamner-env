@@ -1,10 +1,11 @@
+import nltk
 from nltk.tokenize import word_tokenize
 from nltk.translate.bleu_score import sentence_bleu
 
 
 
 def calculate_bleu(epoch,test=False, Warmup=False):
-
+  nltk.download('punkt_tab')
   if test:
 
     predicted_file_name = "predictions/test-predictions.out.txt"
