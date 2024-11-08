@@ -35,6 +35,8 @@ def main():
   parser.add_argument("--comment_len", type=int, default=50, help="Set maximum comment length")
   parser.add_argument('--infer', dest='infer', action='store_true')
   parser.add_argument('--no-infer', dest='infer', action='store_false')
+  parser.add_argument('--metric', default="rouge")
+  parser.add_argument("--order", type=int, default=4)
   parser.set_defaults(feature=True)
   args = parser.parse_args()
   

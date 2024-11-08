@@ -141,7 +141,10 @@ def run_seq2seq(args):
       valid_loss = evaluate(model, valid_iterator, criterion)
       p, t = get_preds(valid_data, SRC, TRG, model, device)
       write_files(p,t,epoch+1)
-      cur_rouge = calculate_rouge(epoch+1)
+      if args.metric == "rouge":
+        cur_rouge = calculate_rouge(epoch+1)
+      elif args.metric == "bleu":
+        cur_rouge = calculate_bleu(epoch+1, order=args.order)
       torch.save(model.state_dict(), 'models/seq2seq-'+str(epoch+1)+'.pt')
   
       if best_valid_loss>valid_loss:
@@ -166,7 +169,10 @@ def run_seq2seq(args):
       print_log('\t Learning Rate: ' + str(optimizer.param_groups[0]['lr']))
       print_log('\t Train Loss: ' + str(round(train_loss, 2)) + ' | Train PPL: ' + str(round(math.exp(train_loss), 2)))
       print_log('\t Val. Loss: ' + str(round(valid_loss, 2 )) + ' |  Val. PPL: '+ str(round(math.exp(valid_loss), 2)))
-      print_log('\t Current Val. Rouge: ' + str(cur_rouge) + ' |  Best Rouge '+ str(best_rouge) + ' |  Best Epoch '+ str(best_epoch))
+      if args.metric == "rouge":
+        print_log('\t Current Val. Rouge: ' + str(cur_rouge) + ' |  Best Rouge '+ str(best_rouge) + ' |  Best Epoch '+ str(best_epoch))
+      elif args.metric == "bleu":  
+        print_log('\t Current Val. BLEU-' + str(args.order) + ': ' + str(cur_rouge) + ' |  Best BLEU-' + str(args.order) + ' '+ str(best_rouge) + ' |  Best Epoch '+ str(best_epoch))
       print_log('\t Number of Epochs of no Improvement '+ str(num_of_epochs_not_improved))
 
   model.load_state_dict(torch.load('models/best-seq2seq.pt'))
@@ -174,8 +180,11 @@ def run_seq2seq(args):
   print_log('Test Loss: ' + str(round(test_loss, 2)) + ' | Test PPL: ' + str(round(math.exp(test_loss), 2)))
   p, t = get_preds(test_data, SRC, TRG, model, device)
   write_files(p,t,epoch=0, test=True)
-  test_rouge = calculate_rouge(epoch=0, test=True)
-  test_bleu = calculate_bleu(epoch=0, test=True)
-  print_log('Test Rouge: ' + str(test_rouge) + ' | Test BLEU-4: ' + str(test_bleu))
+  if args.metric == "rouge":
+    test_rouge = calculate_rouge(epoch=0, test=True)
+    print_log('Test Rouge: ' + str(test_rouge))
+  elif args.metric == "bleu":
+      test_bleu = calculate_bleu(epoch=0, test=True, order=args.order)
+      print_log('Test BLEU-4: ' + str(test_bleu))
 #if __name__ == '__main__':
 #  main()
