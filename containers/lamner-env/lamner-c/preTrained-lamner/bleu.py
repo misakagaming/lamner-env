@@ -57,4 +57,4 @@ def calculate_bleu(epoch,test=False, Warmup=False, order=4):
                 count1[j] -= 1
                 continue"""
             bleu[j] += curr
-    return round(bleu[order-1]/count1[order-1]*100, 2)
+    return round(bleu[order-2]/count1[order-2]*100, 2)
