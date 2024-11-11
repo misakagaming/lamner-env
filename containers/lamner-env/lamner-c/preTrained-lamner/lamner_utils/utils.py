@@ -90,6 +90,9 @@ def calculate_rouge(epoch,test=False, Warmup=False):
  
 def calculate_meteor(epoch,test=False, Warmup=False):
 
+    nltk.download('punkt_tab')
+    nltk.download('wordnet')
+
     if test:
         predicted_file_name = "predictions/test-predictions.out.txt"
         ref_file_name = "predictions/test-trgs.given.txt"
