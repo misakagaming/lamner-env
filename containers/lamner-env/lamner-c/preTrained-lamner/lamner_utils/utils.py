@@ -136,7 +136,7 @@ def calculate_meteor(epoch,test=False, Warmup=False):
             count1[j] -= 1
             continue"""
         meteor += curr
-    print(round(meteor/count*100, 2))
+    return round(meteor/count*100, 2)
 
 def get_max_lens(train_data, test_data, valid_data, code=True):
   
