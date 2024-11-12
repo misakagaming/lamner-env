@@ -31,14 +31,15 @@ def calculate_bleu(epoch,test=False, Warmup=False, order=4):
         ref_lines = f2.readlines()
 
 
-    bleu=[0,0,0]
+    bleu=[0,0,0,0]
     curr = 0
     weight=[
+        (1.,),
         (1./2,1./2),
         (1./3,1./3,1./3),
         (1./4,1./4,1./4,1./4)]
     count = len(predicted_lines)
-    count1 = [count, count, count]
+    count1 = [count, count, count, count]
     """for i in range(count):
         hypothesis = word_tokenize(predicted_lines[i])
         print(hypothesis)
@@ -48,13 +49,12 @@ def calculate_bleu(epoch,test=False, Warmup=False, order=4):
         print(bleu)
         total += bleu"""
     for i in range(count):
-        for j in range(3):
-            curr = sentence_bleu([word_tokenize(ref_lines[i].strip("\n. "))],
-                word_tokenize(predicted_lines[i].strip("\n. ")),
-                weights=weight[j],
-                smoothing_function=chencherry.method2)
-            """if curr < 0.01:
-                count1[j] -= 1
-                continue"""
-            bleu[j] += curr
-    return round(bleu[order-2]/count1[order-2]*100, 2)
+        curr = sentence_bleu([word_tokenize(ref_lines[i].strip("\n. "))],
+            word_tokenize(predicted_lines[i].strip("\n. ")),
+            weights=weight[order-1],
+            smoothing_function=chencherry.method2)
+        """if curr < 0.01:
+            count1[j] -= 1
+            continue"""
+        bleu[order-1] += curr
+    return round(bleu[order-1]/count1[order-1]*100, 2)
