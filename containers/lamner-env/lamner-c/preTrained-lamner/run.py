@@ -7,7 +7,7 @@ import math
 import time
 from torchtext import data
 import torchtext.vocab as vocab
-from lamner_utils.utils import set_seed, init_weights, print_log, get_max_lens, count_parameters, calculate_rouge, write_files, epoch_time, calculate_meteor
+from lamner_utils.utils import set_seed, init_weights, print_log, get_max_lens, count_parameters, calculate_rouge, write_files, epoch_time, calculate_meteor, calculate_cider
 from src.attention import Attention
 from src.encoder import Encoder
 from src.decoder import Decoder
@@ -145,6 +145,8 @@ def run_seq2seq(args):
         cur_rouge = calculate_rouge(epoch+1)
       elif args.metric == "meteor":
         cur_rouge = calculate_meteor(epoch+1)
+      elif args.metric == "cider":
+        cur_rouge = calculate_cider(epoch+1)
       elif args.metric == "bleu":
         cur_rouge = calculate_bleu(epoch+1, order=args.order)
       torch.save(model.state_dict(), 'models/seq2seq-'+str(epoch+1)+'.pt')
@@ -175,6 +177,8 @@ def run_seq2seq(args):
         print_log('\t Current Val. Rouge: ' + str(cur_rouge) + ' |  Best Rouge '+ str(best_rouge) + ' |  Best Epoch '+ str(best_epoch))
       if args.metric == "meteor":
         print_log('\t Current Val. METEOR: ' + str(cur_rouge) + ' |  Best METEOR '+ str(best_rouge) + ' |  Best Epoch '+ str(best_epoch))
+      if args.metric == "cider":
+        print_log('\t Current Val. CIDEr: ' + str(cur_rouge) + ' |  Best CIDEr '+ str(best_rouge) + ' |  Best Epoch '+ str(best_epoch))
       elif args.metric == "bleu":  
         print_log('\t Current Val. BLEU-' + str(args.order) + ': ' + str(cur_rouge) + ' |  Best BLEU-' + str(args.order) + ' '+ str(best_rouge) + ' |  Best Epoch '+ str(best_epoch))
       print_log('\t Number of Epochs of no Improvement '+ str(num_of_epochs_not_improved))
@@ -189,7 +193,9 @@ def run_seq2seq(args):
     print_log('Test Rouge: ' + str(test_rouge))
   if args.metric == "meteor":
     test_rouge = calculate_meteor(epoch=0, test=True)
-    print_log('Test METEOR: ' + str(test_rouge))
+  if args.metric == "cider":
+    test_rouge = calculate_cider(epoch=0, test=True)
+    print_log('Test CIDEr: ' + str(test_rouge))
   elif args.metric == "bleu":
       test_bleu = calculate_bleu(epoch=0, test=True, order=args.order)
       print_log('Test BLEU-' + str(args.order) + ': ' + str(test_bleu))

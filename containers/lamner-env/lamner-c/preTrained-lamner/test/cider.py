@@ -14,6 +14,6 @@ with open(ref_file_name) as f2:
     #ref_lines = [line.rstrip('\n.') for line in f2]
     ref_lines = f2.readlines()
 
-cider(predictions=predicted_lines, references=ref_lines)
+result = cider(predictions=predicted_lines, references=ref_lines)
 
-print(cider["avg_score"])
+print(round(result["avg_score"]*100,2))

@@ -87,6 +87,34 @@ def calculate_rouge(epoch,test=False, Warmup=False):
   rouge = files_rouge.get_scores(
           hyp_path=predicted_file_name, ref_path=ref_file_name, avg=True, ignore_empty=True)
   return round(rouge['rouge-l']["f"]*100, 2)
+  
+def calculate_cider(epoch,test=False, Warmup=False):
+
+  if test:
+
+    predicted_file_name = "predictions/test-predictions.out.txt"
+    ref_file_name = "predictions/test-trgs.given.txt"
+    
+    
+  elif Warmup:
+    predicted_file_name = "predictions/warm-predictions.out-"+str(epoch)+".txt"
+    ref_file_name = "predictions/warm-trgs.given-"+str(epoch)+".txt"
+  
+  else:
+    predicted_file_name = "predictions/predictions.out-"+str(epoch)+".txt"
+    ref_file_name = "predictions/trgs.given-"+str(epoch)+".txt"
+
+  
+   
+  with open(predicted_file_name) as f1:
+    #predicted_lines = [line.rstrip('\n.') for line in f1]
+    predicted_lines = f1.readlines()
+  with open(ref_file_name) as f2:
+    #ref_lines = [line.rstrip('\n.') for line in f2]
+    ref_lines = f2.readlines()
+
+  result = cider(predictions=predicted_lines, references=ref_lines)
+  return(round(result["avg_score"]*100,2))
  
 def calculate_meteor(epoch,test=False, Warmup=False):
 
