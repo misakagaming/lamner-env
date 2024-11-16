@@ -1,0 +1,398 @@
+Setting Embeddings
+Maximum Input length is 300... Maximum Output Length is 30
+Encoder Vocab Size 18860... Decoder Vocab Size 24761
+Batch Size:16
+Embedding Dimension:512
+The model has 80682169 trainable parameters
+
+Training Started.....
+Epoch: 1 | Time: 11m18s
+	 Learning Rate: 0.1
+	 Train Loss: 5.71 | Train PPL: 301.33
+	 Val. Loss: 5.68 |  Val. PPL: 292.11
+	 Current Val. METEOR: 14.56 |  Best METEOR 14.56 |  Best Epoch 1
+	 Number of Epochs of no Improvement 0
+Epoch: 2 | Time: 11m17s
+	 Learning Rate: 0.1
+	 Train Loss: 5.05 | Train PPL: 156.7
+	 Val. Loss: 5.4 |  Val. PPL: 221.35
+	 Current Val. METEOR: 17.96 |  Best METEOR 17.96 |  Best Epoch 2
+	 Number of Epochs of no Improvement 0
+Epoch: 3 | Time: 11m22s
+	 Learning Rate: 0.1
+	 Train Loss: 4.71 | Train PPL: 111.43
+	 Val. Loss: 5.23 |  Val. PPL: 186.54
+	 Current Val. METEOR: 20.62 |  Best METEOR 20.62 |  Best Epoch 3
+	 Number of Epochs of no Improvement 0
+Epoch: 4 | Time: 11m20s
+	 Learning Rate: 0.1
+	 Train Loss: 4.43 | Train PPL: 83.85
+	 Val. Loss: 5.08 |  Val. PPL: 161.22
+	 Current Val. METEOR: 22.5 |  Best METEOR 22.5 |  Best Epoch 4
+	 Number of Epochs of no Improvement 0
+Epoch: 5 | Time: 11m36s
+	 Learning Rate: 0.1
+	 Train Loss: 4.17 | Train PPL: 64.86
+	 Val. Loss: 4.98 |  Val. PPL: 144.98
+	 Current Val. METEOR: 24.91 |  Best METEOR 24.91 |  Best Epoch 5
+	 Number of Epochs of no Improvement 0
+Epoch: 6 | Time: 11m26s
+	 Learning Rate: 0.1
+	 Train Loss: 3.93 | Train PPL: 51.08
+	 Val. Loss: 4.86 |  Val. PPL: 128.59
+	 Current Val. METEOR: 26.17 |  Best METEOR 26.17 |  Best Epoch 6
+	 Number of Epochs of no Improvement 0
+Epoch: 7 | Time: 11m39s
+	 Learning Rate: 0.1
+	 Train Loss: 3.71 | Train PPL: 40.69
+	 Val. Loss: 4.83 |  Val. PPL: 125.44
+	 Current Val. METEOR: 29.17 |  Best METEOR 29.17 |  Best Epoch 7
+	 Number of Epochs of no Improvement 0
+Epoch: 8 | Time: 11m31s
+	 Learning Rate: 0.1
+	 Train Loss: 3.5 | Train PPL: 33.0
+	 Val. Loss: 4.74 |  Val. PPL: 114.76
+	 Current Val. METEOR: 29.71 |  Best METEOR 29.71 |  Best Epoch 8
+	 Number of Epochs of no Improvement 0
+Epoch: 9 | Time: 11m37s
+	 Learning Rate: 0.1
+	 Train Loss: 3.29 | Train PPL: 26.95
+	 Val. Loss: 4.72 |  Val. PPL: 112.05
+	 Current Val. METEOR: 31.7 |  Best METEOR 31.7 |  Best Epoch 9
+	 Number of Epochs of no Improvement 0
+Epoch: 10 | Time: 11m43s
+	 Learning Rate: 0.1
+	 Train Loss: 3.11 | Train PPL: 22.36
+	 Val. Loss: 4.66 |  Val. PPL: 105.93
+	 Current Val. METEOR: 32.91 |  Best METEOR 32.91 |  Best Epoch 10
+	 Number of Epochs of no Improvement 0
+Epoch: 11 | Time: 11m37s
+	 Learning Rate: 0.1
+	 Train Loss: 2.93 | Train PPL: 18.7
+	 Val. Loss: 4.68 |  Val. PPL: 108.02
+	 Current Val. METEOR: 33.17 |  Best METEOR 33.17 |  Best Epoch 10
+	 Number of Epochs of no Improvement 1
+Epoch: 12 | Time: 11m39s
+	 Learning Rate: 0.1
+	 Train Loss: 2.77 | Train PPL: 15.95
+	 Val. Loss: 4.67 |  Val. PPL: 106.25
+	 Current Val. METEOR: 34.66 |  Best METEOR 34.66 |  Best Epoch 10
+	 Number of Epochs of no Improvement 2
+Epoch: 13 | Time: 11m39s
+	 Learning Rate: 0.1
+	 Train Loss: 2.62 | Train PPL: 13.76
+	 Val. Loss: 4.64 |  Val. PPL: 104.05
+	 Current Val. METEOR: 34.73 |  Best METEOR 34.73 |  Best Epoch 13
+	 Number of Epochs of no Improvement 0
+Epoch: 14 | Time: 11m49s
+	 Learning Rate: 0.1
+	 Train Loss: 2.49 | Train PPL: 12.06
+	 Val. Loss: 4.66 |  Val. PPL: 105.5
+	 Current Val. METEOR: 35.93 |  Best METEOR 35.93 |  Best Epoch 13
+	 Number of Epochs of no Improvement 1
+Epoch: 15 | Time: 11m52s
+	 Learning Rate: 0.1
+	 Train Loss: 2.38 | Train PPL: 10.75
+	 Val. Loss: 4.73 |  Val. PPL: 112.8
+	 Current Val. METEOR: 36.43 |  Best METEOR 36.43 |  Best Epoch 13
+	 Number of Epochs of no Improvement 2
+Epoch: 16 | Time: 11m47s
+	 Learning Rate: 0.1
+	 Train Loss: 2.26 | Train PPL: 9.63
+	 Val. Loss: 4.74 |  Val. PPL: 114.29
+	 Current Val. METEOR: 36.18 |  Best METEOR 36.43 |  Best Epoch 13
+	 Number of Epochs of no Improvement 3
+Epoch: 17 | Time: 11m53s
+	 Learning Rate: 0.1
+	 Train Loss: 2.17 | Train PPL: 8.74
+	 Val. Loss: 4.76 |  Val. PPL: 117.07
+	 Current Val. METEOR: 37.3 |  Best METEOR 37.3 |  Best Epoch 13
+	 Number of Epochs of no Improvement 4
+Epoch: 18 | Time: 11m42s
+	 Learning Rate: 0.1
+	 Train Loss: 2.08 | Train PPL: 8.0
+	 Val. Loss: 4.79 |  Val. PPL: 120.51
+	 Current Val. METEOR: 36.99 |  Best METEOR 37.3 |  Best Epoch 13
+	 Number of Epochs of no Improvement 5
+Epoch: 19 | Time: 11m49s
+	 Learning Rate: 0.1
+	 Train Loss: 2.01 | Train PPL: 7.43
+	 Val. Loss: 4.81 |  Val. PPL: 122.31
+	 Current Val. METEOR: 37.59 |  Best METEOR 37.59 |  Best Epoch 13
+	 Number of Epochs of no Improvement 6
+Epoch: 20 | Time: 11m50s
+	 Learning Rate: 0.1
+	 Train Loss: 1.94 | Train PPL: 6.96
+	 Val. Loss: 4.81 |  Val. PPL: 123.17
+	 Current Val. METEOR: 38.13 |  Best METEOR 38.13 |  Best Epoch 13
+	 Number of Epochs of no Improvement 7
+Epoch: 21 | Time: 11m51s
+	 Learning Rate: 0.010000000000000002
+	 Train Loss: 1.58 | Train PPL: 4.84
+	 Val. Loss: 4.69 |  Val. PPL: 109.33
+	 Current Val. METEOR: 40.89 |  Best METEOR 40.89 |  Best Epoch 13
+	 Number of Epochs of no Improvement 1
+Epoch: 22 | Time: 11m50s
+	 Learning Rate: 0.010000000000000002
+	 Train Loss: 1.43 | Train PPL: 4.17
+	 Val. Loss: 4.71 |  Val. PPL: 110.7
+	 Current Val. METEOR: 41.47 |  Best METEOR 41.47 |  Best Epoch 13
+	 Number of Epochs of no Improvement 2
+Epoch: 23 | Time: 11m49s
+	 Learning Rate: 0.010000000000000002
+	 Train Loss: 1.34 | Train PPL: 3.84
+	 Val. Loss: 4.73 |  Val. PPL: 113.36
+	 Current Val. METEOR: 41.63 |  Best METEOR 41.63 |  Best Epoch 13
+	 Number of Epochs of no Improvement 3
+Epoch: 24 | Time: 11m53s
+	 Learning Rate: 0.010000000000000002
+	 Train Loss: 1.29 | Train PPL: 3.64
+	 Val. Loss: 4.74 |  Val. PPL: 114.85
+	 Current Val. METEOR: 42.16 |  Best METEOR 42.16 |  Best Epoch 13
+	 Number of Epochs of no Improvement 4
+Epoch: 25 | Time: 11m54s
+	 Learning Rate: 0.010000000000000002
+	 Train Loss: 1.25 | Train PPL: 3.48
+	 Val. Loss: 4.76 |  Val. PPL: 117.33
+	 Current Val. METEOR: 42.28 |  Best METEOR 42.28 |  Best Epoch 13
+	 Number of Epochs of no Improvement 5
+Epoch: 26 | Time: 11m53s
+	 Learning Rate: 0.010000000000000002
+	 Train Loss: 1.21 | Train PPL: 3.34
+	 Val. Loss: 4.8 |  Val. PPL: 121.04
+	 Current Val. METEOR: 42.41 |  Best METEOR 42.41 |  Best Epoch 13
+	 Number of Epochs of no Improvement 6
+Epoch: 27 | Time: 11m53s
+	 Learning Rate: 0.010000000000000002
+	 Train Loss: 1.17 | Train PPL: 3.22
+	 Val. Loss: 4.83 |  Val. PPL: 125.23
+	 Current Val. METEOR: 42.44 |  Best METEOR 42.44 |  Best Epoch 13
+	 Number of Epochs of no Improvement 7
+Epoch: 28 | Time: 11m54s
+	 Learning Rate: 0.0010000000000000002
+	 Train Loss: 1.11 | Train PPL: 3.04
+	 Val. Loss: 4.84 |  Val. PPL: 126.34
+	 Current Val. METEOR: 42.51 |  Best METEOR 42.51 |  Best Epoch 13
+	 Number of Epochs of no Improvement 1
+Epoch: 29 | Time: 11m55s
+	 Learning Rate: 0.0010000000000000002
+	 Train Loss: 1.11 | Train PPL: 3.03
+	 Val. Loss: 4.84 |  Val. PPL: 126.72
+	 Current Val. METEOR: 42.55 |  Best METEOR 42.55 |  Best Epoch 13
+	 Number of Epochs of no Improvement 2
+Epoch: 30 | Time: 11m55s
+	 Learning Rate: 0.0010000000000000002
+	 Train Loss: 1.1 | Train PPL: 3.0
+	 Val. Loss: 4.84 |  Val. PPL: 126.75
+	 Current Val. METEOR: 42.62 |  Best METEOR 42.62 |  Best Epoch 13
+	 Number of Epochs of no Improvement 3
+Epoch: 31 | Time: 11m55s
+	 Learning Rate: 0.0010000000000000002
+	 Train Loss: 1.09 | Train PPL: 2.98
+	 Val. Loss: 4.85 |  Val. PPL: 127.58
+	 Current Val. METEOR: 42.6 |  Best METEOR 42.62 |  Best Epoch 13
+	 Number of Epochs of no Improvement 4
+Epoch: 32 | Time: 11m54s
+	 Learning Rate: 0.0010000000000000002
+	 Train Loss: 1.09 | Train PPL: 2.98
+	 Val. Loss: 4.85 |  Val. PPL: 127.7
+	 Current Val. METEOR: 42.61 |  Best METEOR 42.62 |  Best Epoch 13
+	 Number of Epochs of no Improvement 5
+Epoch: 33 | Time: 11m54s
+	 Learning Rate: 0.0010000000000000002
+	 Train Loss: 1.08 | Train PPL: 2.96
+	 Val. Loss: 4.86 |  Val. PPL: 128.65
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 6
+Epoch: 34 | Time: 11m53s
+	 Learning Rate: 0.0010000000000000002
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.7
+	 Current Val. METEOR: 42.65 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 7
+Epoch: 35 | Time: 11m53s
+	 Learning Rate: 0.00010000000000000003
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.64
+	 Current Val. METEOR: 42.64 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 1
+Epoch: 36 | Time: 11m54s
+	 Learning Rate: 0.00010000000000000003
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.68
+	 Current Val. METEOR: 42.63 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 2
+Epoch: 37 | Time: 11m55s
+	 Learning Rate: 0.00010000000000000003
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.94
+	 Current Val. METEOR: 42.65 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 3
+Epoch: 38 | Time: 11m55s
+	 Learning Rate: 0.00010000000000000003
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 129.08
+	 Current Val. METEOR: 42.68 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 4
+Epoch: 39 | Time: 11m55s
+	 Learning Rate: 0.00010000000000000003
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.94
+	 Current Val. METEOR: 42.69 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 5
+Epoch: 40 | Time: 11m54s
+	 Learning Rate: 0.00010000000000000003
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 129.06
+	 Current Val. METEOR: 42.65 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 6
+Epoch: 41 | Time: 11m54s
+	 Learning Rate: 0.00010000000000000003
+	 Train Loss: 1.08 | Train PPL: 2.93
+	 Val. Loss: 4.86 |  Val. PPL: 129.17
+	 Current Val. METEOR: 42.67 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 7
+Epoch: 42 | Time: 11m55s
+	 Learning Rate: 1.0000000000000004e-05
+	 Train Loss: 1.08 | Train PPL: 2.95
+	 Val. Loss: 4.86 |  Val. PPL: 128.75
+	 Current Val. METEOR: 42.68 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 1
+Epoch: 43 | Time: 11m54s
+	 Learning Rate: 1.0000000000000004e-05
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.74
+	 Current Val. METEOR: 42.66 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 2
+Epoch: 44 | Time: 11m54s
+	 Learning Rate: 1.0000000000000004e-05
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.76
+	 Current Val. METEOR: 42.67 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 3
+Epoch: 45 | Time: 11m53s
+	 Learning Rate: 1.0000000000000004e-05
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.8
+	 Current Val. METEOR: 42.67 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 4
+Epoch: 46 | Time: 11m53s
+	 Learning Rate: 1.0000000000000004e-05
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.74
+	 Current Val. METEOR: 42.66 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 5
+Epoch: 47 | Time: 11m55s
+	 Learning Rate: 1.0000000000000004e-05
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.75
+	 Current Val. METEOR: 42.65 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 6
+Epoch: 48 | Time: 11m55s
+	 Learning Rate: 1.0000000000000004e-05
+	 Train Loss: 1.08 | Train PPL: 2.95
+	 Val. Loss: 4.86 |  Val. PPL: 128.75
+	 Current Val. METEOR: 42.66 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 7
+Epoch: 49 | Time: 11m54s
+	 Learning Rate: 1.0000000000000004e-06
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.68
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 1
+Epoch: 50 | Time: 11m53s
+	 Learning Rate: 1.0000000000000004e-06
+	 Train Loss: 1.08 | Train PPL: 2.93
+	 Val. Loss: 4.86 |  Val. PPL: 128.64
+	 Current Val. METEOR: 42.69 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 2
+Epoch: 51 | Time: 11m54s
+	 Learning Rate: 1.0000000000000004e-06
+	 Train Loss: 1.08 | Train PPL: 2.95
+	 Val. Loss: 4.86 |  Val. PPL: 128.63
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 3
+Epoch: 52 | Time: 11m54s
+	 Learning Rate: 1.0000000000000004e-06
+	 Train Loss: 1.08 | Train PPL: 2.95
+	 Val. Loss: 4.86 |  Val. PPL: 128.66
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 4
+Epoch: 53 | Time: 11m55s
+	 Learning Rate: 1.0000000000000004e-06
+	 Train Loss: 1.08 | Train PPL: 2.93
+	 Val. Loss: 4.86 |  Val. PPL: 128.65
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 5
+Epoch: 54 | Time: 11m55s
+	 Learning Rate: 1.0000000000000004e-06
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.69
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 6
+Epoch: 55 | Time: 11m55s
+	 Learning Rate: 1.0000000000000004e-06
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.67
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 7
+Epoch: 56 | Time: 11m54s
+	 Learning Rate: 1.0000000000000005e-07
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.73
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 1
+Epoch: 57 | Time: 11m54s
+	 Learning Rate: 1.0000000000000005e-07
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.73
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 2
+Epoch: 58 | Time: 11m54s
+	 Learning Rate: 1.0000000000000005e-07
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.65
+	 Current Val. METEOR: 42.69 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 3
+Epoch: 59 | Time: 11m54s
+	 Learning Rate: 1.0000000000000005e-07
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.7
+	 Current Val. METEOR: 42.69 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 4
+Epoch: 60 | Time: 11m54s
+	 Learning Rate: 1.0000000000000005e-07
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.66
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 5
+Epoch: 61 | Time: 11m54s
+	 Learning Rate: 1.0000000000000005e-07
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.65
+	 Current Val. METEOR: 42.69 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 6
+Epoch: 62 | Time: 11m54s
+	 Learning Rate: 1.0000000000000005e-07
+	 Train Loss: 1.08 | Train PPL: 2.95
+	 Val. Loss: 4.86 |  Val. PPL: 128.66
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 7
+Epoch: 63 | Time: 11m54s
+	 Learning Rate: 1.0000000000000005e-08
+	 Train Loss: 1.08 | Train PPL: 2.94
+	 Val. Loss: 4.86 |  Val. PPL: 128.67
+	 Current Val. METEOR: 42.7 |  Best METEOR 42.7 |  Best Epoch 13
+	 Number of Epochs of no Improvement 1
+Test Loss: 4.77 | Test PPL: 117.48
+Test METEOR: 43.78
+Setting Embeddings
+Maximum Input length is 300... Maximum Output Length is 30
+Encoder Vocab Size 18860... Decoder Vocab Size 24761
+Batch Size:16
+Embedding Dimension:512
+The model has 80682169 trainable parameters
+
+Training Started.....
+Test Loss: 4.77 | Test PPL: 117.48
+Test METEOR: 43.78
