@@ -1,4 +1,4 @@
-flair
+flair==0.9
 torch==1.11.0
 torchtext==0.6.0
 six==1.14.0
