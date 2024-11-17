@@ -9,4 +9,3 @@ gdown==3.12.2
 pandas
 pyarrow
 nltk
-git+https://github.com/michelecafagna26/cider.git#egg=cidereval
