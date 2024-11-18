@@ -193,6 +193,7 @@ def run_seq2seq(args):
     print_log('Test Rouge: ' + str(test_rouge))
   if args.metric == "meteor":
     test_rouge = calculate_meteor(epoch=0, test=True)
+    print_log('Test METEOR: ' + str(test_rouge))
   if args.metric == "cider":
     test_rouge = calculate_cider(epoch=0, test=True)
     print_log('Test CIDEr: ' + str(test_rouge))
