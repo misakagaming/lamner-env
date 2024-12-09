@@ -257,8 +257,8 @@ def train_ner_model(args):
   tag_dictionary = corpus.make_tag_dictionary(tag_type=tag_type)
   if args.codebert:
     embedding_types: List[TokenEmbeddings] = [
-                                             FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
                                              TransformerDocumentEmbeddings('microsoft/codebert-base'),
+                                             FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
                                               ]
   else:
     embedding_types: List[TokenEmbeddings] = [

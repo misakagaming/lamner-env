@@ -8,6 +8,7 @@ import time
 from torchtext import data
 import torchtext.vocab as vocab
 from lamner_utils.utils import set_seed, init_weights, print_log, get_max_lens, count_parameters, calculate_rouge, write_files, epoch_time, calculate_meteor, calculate_cider
+from flair.embeddings import TokenEmbeddings, WordEmbeddings, StackedEmbeddings, PooledFlairEmbeddings, ELMoEmbeddings, TransformerDocumentEmbeddings
 from src.attention import Attention
 from src.encoder import Encoder
 from src.decoder import Decoder
@@ -105,6 +106,7 @@ def run_seq2seq(args):
 			   )
   embeddings_enc2 = SRC.vocab.vectors
   embeddings_enc3 = torch.cat([embeddings_enc1, embeddings_enc2], dim=1)
+      
   model.encoder.embedding.weight.data.copy_(embeddings_enc3)
   #embeddings_trg = TRG.vocab.vectors
   #model.decoder.embedding.weight.data.copy_(embeddings_trg)
