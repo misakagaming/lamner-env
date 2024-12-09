@@ -40,6 +40,8 @@ def main():
   parser.add_argument('--ner', dest='ner', action='store_true')
   parser.add_argument('--no-ner', dest='ner', action='store_false')
   parser.add_argument('--metric', default="rouge")
+  parser.add_argument('--codebert', dest='codebert', action='store_true')
+  parser.add_argument('--no-codebert', dest='codebert', action='store_false')
   parser.add_argument("--order", type=int, default=4)
   parser.set_defaults(feature=True)
   args = parser.parse_args()

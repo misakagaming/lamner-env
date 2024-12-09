@@ -6,7 +6,7 @@ from flair.datasets import ColumnCorpus
 from flair.data import Sentence
 from flair.models import SequenceTagger
 from flair.embeddings import FlairEmbeddings
-from flair.embeddings import TokenEmbeddings, WordEmbeddings, StackedEmbeddings, PooledFlairEmbeddings, ELMoEmbeddings
+from flair.embeddings import TokenEmbeddings, WordEmbeddings, StackedEmbeddings, PooledFlairEmbeddings, ELMoEmbeddings, TransformerDocumentEmbeddings
 from typing import List
 from flair.models import SequenceTagger
 from flair.trainers import ModelTrainer
@@ -255,9 +255,15 @@ def train_ner_model(args):
                               dev_file='valid.txt')
   tag_type = 'ner'
   tag_dictionary = corpus.make_tag_dictionary(tag_type=tag_type)
-  embedding_types: List[TokenEmbeddings] = [
-                                           FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
-                                            ]
+  if args.codebert:
+    embedding_types: List[TokenEmbeddings] = [
+                                             FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
+                                             TransformerDocumentEmbeddings('microsoft/codebert-base'),
+                                              ]
+  else:
+    embedding_types: List[TokenEmbeddings] = [
+                                             FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
+                                              ]
   embeddings: StackedEmbeddings = StackedEmbeddings(embeddings=embedding_types)
   tagger: SequenceTagger = SequenceTagger(hidden_size=int(args.embedding_size/4),
                                         embeddings=embeddings,
