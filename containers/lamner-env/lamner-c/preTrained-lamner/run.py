@@ -92,14 +92,21 @@ def run_seq2seq(args):
   INPUT_DIM = len(SRC.vocab)
   OUTPUT_DIM = len(TRG.vocab)
   SRC_PAD_IDX = SRC.vocab.stoi[SRC.pad_token]
+  dim = args.embedding_size
+  if not args.lam:
+    dim -= args.embedding_size/2
+  if not args.ner:
+    dim -= args.embedding_size/2
   if args.codebert:
-    attn = Attention(args.hidden_dimension+768, args.hidden_dimension+768)
-    enc = Encoder(INPUT_DIM, args.embedding_size+768, args.hidden_dimension+768, args.hidden_dimension+768, args.dropout)
-    dec = Decoder(OUTPUT_DIM, args.embedding_size+768, args.hidden_dimension+768, args.hidden_dimension+768, args.dropout, attn)
-  else:
+    dim += 768
+  if dim == 0:
     attn = Attention(args.hidden_dimension, args.hidden_dimension)
     enc = Encoder(INPUT_DIM, args.embedding_size, args.hidden_dimension, args.hidden_dimension, args.dropout)
     dec = Decoder(OUTPUT_DIM, args.embedding_size, args.hidden_dimension, args.hidden_dimension, args.dropout, attn)
+  else:
+    attn = Attention(dim, dim)
+    enc = Encoder(INPUT_DIM, dim, dim, dim, args.dropout)
+    dec = Decoder(OUTPUT_DIM, dim, dim, dim, args.dropout, attn)
   model = Seq2Seq(enc, dec, SRC_PAD_IDX, device).to(device)
   model.apply(init_weights)
   #*************************************************************************************
