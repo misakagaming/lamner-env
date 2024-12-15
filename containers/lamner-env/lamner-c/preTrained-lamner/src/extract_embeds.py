@@ -187,24 +187,22 @@ def process_and_extract(args, typee, char_lm_embeddings, model):
       tokens_to_write_lm.append(lm_vector)
       tokens_to_write_ner.append(ner_vector)
       #tot = tot+ 1
-    if(args.lam):  
-      with open("./custom_embeddings/semantic-embeds.txt", "w", encoding="utf-8") as f:
-        for i in range(len(tokens_to_write_lm)):
-          lm_str =""
-          for each_dim in tokens_to_write_lm[i]:
-            lm_str = lm_str + " " + str(each_dim)
-            lm_str = lm_str.strip(" ")
-          lm_str = str(unique_tokens[i]) + " " + lm_str+"\n"
-          f.write(lm_str)
-    if(args.ner): 
-      with open("./custom_embeddings/syntax-embeds.txt", "w", encoding="utf-8") as f:
-        for i in range(len(tokens_to_write_ner)):
-          ner_str =""
-          for each_dim in tokens_to_write_ner[i]:
-            ner_str = ner_str + " " + str(each_dim)
-            ner_str = ner_str.strip(" ")
-          ner_str = str(unique_tokens[i]) + " " + ner_str+"\n"
-          f.write(ner_str)
+    with open("./custom_embeddings/semantic-embeds.txt", "w", encoding="utf-8") as f:
+      for i in range(len(tokens_to_write_lm)):
+        lm_str =""
+        for each_dim in tokens_to_write_lm[i]:
+          lm_str = lm_str + " " + str(each_dim)
+          lm_str = lm_str.strip(" ")
+        lm_str = str(unique_tokens[i]) + " " + lm_str+"\n"
+        f.write(lm_str)
+    with open("./custom_embeddings/syntax-embeds.txt", "w", encoding="utf-8") as f:
+      for i in range(len(tokens_to_write_ner)):
+        ner_str =""
+        for each_dim in tokens_to_write_ner[i]:
+          ner_str = ner_str + " " + str(each_dim)
+          ner_str = ner_str.strip(" ")
+        ner_str = str(unique_tokens[i]) + " " + ner_str+"\n"
+        f.write(ner_str)
   
   new_df  = pd.DataFrame({"code":code_encoder, "summary": summaries})
   new_df["code"] = new_df["code"].apply(lambda x: " ".join(x.split()[:args.code_len]).strip())

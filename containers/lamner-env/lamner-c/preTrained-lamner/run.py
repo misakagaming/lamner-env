@@ -99,29 +99,48 @@ def run_seq2seq(args):
   model.apply(init_weights)
   #*************************************************************************************
   print_log("Setting Embeddings")
-  SRC.build_vocab(train_data, 
-                 max_size = MAX_VOCAB_SIZE, 
-                 vectors = custom_embeddings_semantic_encoder
-               )
-  embeddings_enc1 = SRC.vocab.vectors
-  SRC.build_vocab(train_data, 
-				 max_size = MAX_VOCAB_SIZE, 
-				 vectors = custom_embeddings_syntax_encoder
-			   )
-  embeddings_enc2 = SRC.vocab.vectors
-  embeddings_enc3 = torch.cat([embeddings_enc1, embeddings_enc2], dim=1)
+  if args.lam:
+    SRC.build_vocab(train_data, 
+                   max_size = MAX_VOCAB_SIZE, 
+                   vectors = custom_embeddings_semantic_encoder
+                 )
+    embeddings_enc1 = SRC.vocab.vectors
+  if args.ner:
+    SRC.build_vocab(train_data, 
+	  			 max_size = MAX_VOCAB_SIZE, 
+	  			 vectors = custom_embeddings_syntax_encoder
+	  		   )
+    embeddings_enc2 = SRC.vocab.vectors
   if args.codebert:
     SRC.build_vocab(train_data, 
 				 max_size = MAX_VOCAB_SIZE, 
 				 vectors = codebert_embeds
 			   )
-    embeddings_enc4 = SRC.vocab.vectors
-    embeddings_enc3 = torch.cat([embeddings_enc3, embeddings_enc4], dim=1)
-      
-  model.encoder.embedding.weight.data.copy_(embeddings_enc3)
+    embeddings_enc3 = SRC.vocab.vectors
+  default_embeds = True
+  if args.lam:
+    if default_embeds:
+      default_embeds = False
+      embeddings_enc4 = embeddings_enc1
+    else:
+      embeddings_enc4 = torch.cat([embeddings_enc4, embeddings_enc1], dim=1)
+  if args.ner:
+    if default_embeds:
+      default_embeds = False
+      embeddings_enc4 = embeddings_enc2
+    else:
+      embeddings_enc4 = torch.cat([embeddings_enc4, embeddings_enc2], dim=1)
+  if args.codebert:
+    if default_embeds:
+      default_embeds = False
+      embeddings_enc4 = embeddings_enc3
+    else:
+      embeddings_enc4 = torch.cat([embeddings_enc4, embeddings_enc3], dim=1)
+  if not default_embeds:    
+    model.encoder.embedding.weight.data.copy_(embeddings_enc4)
   #embeddings_trg = TRG.vocab.vectors
   #model.decoder.embedding.weight.data.copy_(embeddings_trg)
-  del embeddings_enc1, embeddings_enc3, embeddings_enc2 #embeddings_trg
+  del embeddings_enc1, embeddings_enc3, embeddings_enc2, embeddings_enc3 #embeddings_trg
   #*************************************************************************************
   optimizer = optim.SGD(model.parameters(),lr=args.learning_rate, momentum=0.9)
   TRG_PAD_IDX = TRG.vocab.stoi[TRG.pad_token]
