@@ -98,7 +98,7 @@ def run_seq2seq(args):
   if not args.ner:
     dim -= args.embedding_size/2
   if args.codebert:
-    dim += 768
+    dim += 767
   if dim == 0:
     attn = Attention(args.hidden_dimension, args.hidden_dimension)
     enc = Encoder(INPUT_DIM, args.embedding_size, args.hidden_dimension, args.hidden_dimension, args.dropout)
