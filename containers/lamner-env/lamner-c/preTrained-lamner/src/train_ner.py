@@ -255,15 +255,9 @@ def train_ner_model(args):
                               dev_file='valid.txt')
   tag_type = 'ner'
   tag_dictionary = corpus.make_tag_dictionary(tag_type=tag_type)
-  if args.codebert:
-    embedding_types = [
-                         TransformerDocumentEmbeddings('microsoft/codebert-base'),
-                         FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
-                          ]
-  else:
-    embedding_types = [
-                         FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
-                          ]
+  embedding_types: List[TokenEmbeddings] = [
+                                             FlairEmbeddings('resources/taggers/code_language_model/best-lm.pt'),
+                                              ]
   embeddings: StackedEmbeddings = StackedEmbeddings(embeddings=embedding_types)
   tagger: SequenceTagger = SequenceTagger(hidden_size=int(args.embedding_size/4),
                                         embeddings=embeddings,
