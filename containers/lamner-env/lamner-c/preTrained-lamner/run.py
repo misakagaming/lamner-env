@@ -95,12 +95,16 @@ def run_seq2seq(args):
   dim = int(args.embedding_size)
   if not not args.lam and not args.ner:
     dim = 0
+    if args.codebert:
+      dim = 767
   if not args.lam:
     dim = int(dim - args.embedding_size/2)
+    if args.codebert:
+      dim += 767
   if not args.ner:
     dim = int(dim - args.embedding_size/2)
-  if args.codebert:
-    dim += 767
+    if args.codebert:
+      dim += 767 
   if dim == 0:
     attn = Attention(args.hidden_dimension, args.hidden_dimension)
     enc = Encoder(INPUT_DIM, args.embedding_size, args.hidden_dimension, args.hidden_dimension, args.dropout)
@@ -154,7 +158,7 @@ def run_seq2seq(args):
     model.encoder.embedding.weight.data.copy_(embeddings_enc4)
   #embeddings_trg = TRG.vocab.vectors
   #model.decoder.embedding.weight.data.copy_(embeddings_trg)
-  #del embeddings_enc1, embeddings_enc3, embeddings_enc2, embeddings_enc3 #embeddings_trg
+  del embeddings_enc1, embeddings_enc3, embeddings_enc2, embeddings_enc3, embeddings_enc4 #embeddings_trg
   #*************************************************************************************
   optimizer = optim.SGD(model.parameters(),lr=args.learning_rate, momentum=0.9)
   TRG_PAD_IDX = TRG.vocab.stoi[TRG.pad_token]
