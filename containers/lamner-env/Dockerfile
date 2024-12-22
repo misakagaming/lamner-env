@@ -59,3 +59,12 @@ RUN chmod +x /entrypoint.sh
 
 # Set entrypoint to bash
 ENTRYPOINT ["/entrypoint.sh"]
+
+COPY rencos-master .
+
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Set entrypoint to bash
+ENTRYPOINT ["/entrypoint.sh"]
