@@ -54,7 +54,6 @@ COPY lamner-c .
 
 COPY requirements.txt .
 
-COPY rencos-master .
 
 
 COPY entrypoint.sh /entrypoint.sh
