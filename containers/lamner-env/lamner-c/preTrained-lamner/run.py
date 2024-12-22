@@ -93,15 +93,15 @@ def run_seq2seq(args):
   OUTPUT_DIM = len(TRG.vocab)
   SRC_PAD_IDX = SRC.vocab.stoi[SRC.pad_token]
   dim = int(args.embedding_size)
-  if not not args.lam and not args.ner:
+  if not args.lam and not args.ner:
     dim = 0
     if args.codebert:
       dim = 767
-  elif if not args.lam:
+  elif not args.lam:
     dim = int(dim - args.embedding_size/2)
     if args.codebert:
       dim += 767
-  elif if not args.ner:
+  elif not args.ner:
     dim = int(dim - args.embedding_size/2)
     if args.codebert:
       dim += 767 
