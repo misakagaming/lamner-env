@@ -97,11 +97,11 @@ def run_seq2seq(args):
     dim = 0
     if args.codebert:
       dim = 767
-  if not args.lam:
+  elif if not args.lam:
     dim = int(dim - args.embedding_size/2)
     if args.codebert:
       dim += 767
-  if not args.ner:
+  elif if not args.ner:
     dim = int(dim - args.embedding_size/2)
     if args.codebert:
       dim += 767 
