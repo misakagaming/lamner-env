@@ -158,7 +158,7 @@ def run_seq2seq(args):
     model.encoder.embedding.weight.data.copy_(embeddings_enc4)
   #embeddings_trg = TRG.vocab.vectors
   #model.decoder.embedding.weight.data.copy_(embeddings_trg)
-  del embeddings_enc1, embeddings_enc3, embeddings_enc2, embeddings_enc3, embeddings_enc4 #embeddings_trg
+  #del embeddings_enc1, embeddings_enc3, embeddings_enc2, embeddings_enc3, embeddings_enc4 #embeddings_trg
   #*************************************************************************************
   optimizer = optim.SGD(model.parameters(),lr=args.learning_rate, momentum=0.9)
   TRG_PAD_IDX = TRG.vocab.stoi[TRG.pad_token]
