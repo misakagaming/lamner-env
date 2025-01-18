@@ -207,11 +207,11 @@ def run_seq2seq(args):
         best_epoch = epoch + 1
         num_of_epochs_not_improved = 0
       else:
-        num_of_epochs_not_improved = num_of_epochs_not_improved + 1 
+        num_of_epochs_not_improved = num_of_epochs_not_improved + 1
       
-      """if cur_rouge > best_rouge:
+      
+      if cur_rouge > best_rouge:
         best_rouge = cur_rouge
-        torch.save(model.state_dict(), 'models/best-seq2seq.pt')"""
       
       if make_weights_static==True:
         model.encoder.embedding.weight.requires_grad=False

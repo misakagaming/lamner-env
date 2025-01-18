@@ -14,6 +14,10 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 		checkinstall \
 		software-properties-common \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
+
+RUN apt-get --purge remove "*cublas*" "cuda*" "nsight*" 
+
+RUN rm -rf /usr/local/cuda*
 	
 RUN add-apt-repository ppa:deadsnakes/ppa
 

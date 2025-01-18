@@ -187,7 +187,7 @@ def process_and_extract(args, typee, char_lm_embeddings, model):
       tokens_to_write_lm.append(lm_vector)
       tokens_to_write_ner.append(ner_vector)
       #tot = tot+ 1
-    with open("./custom_embeddings/semantic-embeds.txt", "w", encoding="utf-8") as f:
+    with open("./custom_embeddings/semantic_embeds.txt", "w", encoding="utf-8") as f:
       for i in range(len(tokens_to_write_lm)):
         lm_str =""
         for each_dim in tokens_to_write_lm[i]:
@@ -195,7 +195,7 @@ def process_and_extract(args, typee, char_lm_embeddings, model):
           lm_str = lm_str.strip(" ")
         lm_str = str(unique_tokens[i]) + " " + lm_str+"\n"
         f.write(lm_str)
-    with open("./custom_embeddings/syntax-embeds.txt", "w", encoding="utf-8") as f:
+    with open("./custom_embeddings/syntax_embeds.txt", "w", encoding="utf-8") as f:
       for i in range(len(tokens_to_write_ner)):
         ner_str =""
         for each_dim in tokens_to_write_ner[i]:
