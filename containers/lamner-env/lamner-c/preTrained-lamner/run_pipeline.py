@@ -17,6 +17,7 @@ from src.train_lm import train_language_model
 from src.train_ner import train_ner_model
 from src.extract_embeds import get_embeds
 from run import run_seq2seq
+from run_save import run_save
 
 def main():
   set_seed()
@@ -43,6 +44,7 @@ def main():
   parser.add_argument('--codebert', dest='codebert', action='store_true')
   parser.add_argument('--no-codebert', dest='codebert', action='store_false')
   parser.add_argument("--order", type=int, default=4)
+  parser.add_argument("--run-save", type=int, default=0)
   parser.set_defaults(feature=True)
   args = parser.parse_args()
   
@@ -52,7 +54,10 @@ def main():
     train_language_model(args)
     train_ner_model(args)
     get_embeds(args)
-  run_seq2seq(args)
+  if args.run-save == 0:
+    run_seq2seq(args)
+  else:
+    run_save(args)
 
   
 if __name__ == '__main__':

@@ -16,7 +16,7 @@ from src.seq2seq import Seq2Seq, train, evaluate, get_preds
 from six.moves import map
 from bleu import calculate_bleu
 
-def run_seq2seq(args):
+def run_save(args):
   set_seed()
   ##Loading parameters for the model
   #parser = argparse.ArgumentParser(description="Setting hyperparameters for Lamner")
