@@ -156,6 +156,6 @@ def run_save(args):
       embeddings_enc4 = torch.cat([embeddings_enc4, embeddings_enc3], dim=1)
   if not default_embeds:    
     model.encoder.embedding.weight.data.copy_(embeddings_enc4)
-  torch.save(embeddings_enc4, "concat_weigths.txt")
+  np.savetxt("concat_weigths.txt", embeddings_enc4.cpu().detach().numpy())
 #if __name__ == '__main__':
 #  main()
