@@ -15,6 +15,7 @@ from src.decoder import Decoder
 from src.seq2seq import Seq2Seq, train, evaluate, get_preds
 from six.moves import map
 from bleu import calculate_bleu
+import numpy as np
 
 def run_save(args):
   set_seed()
