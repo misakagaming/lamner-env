@@ -71,6 +71,10 @@ def run_seq2seq(args):
   print("test")
   if args.codebert:
     codebert_embeds = torch.from_numpy(np.loadtxt('custom_embeddings/weights.txt'))
+  SRC.build_vocab(train_data, 
+                     max_size = MAX_VOCAB_SIZE, 
+                     vectors = custom_embeddings_semantic_encoder
+                   ) 
   TRG.build_vocab(train_data, 
                      max_size = MAX_VOCAB_SIZE 
                      #vectors = custom_embeddings_decoder
