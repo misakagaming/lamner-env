@@ -69,13 +69,7 @@ def run_seq2seq(args):
   #*****************************************************************************************************
   print("test")
   if args.codebert:
-    codebert_embeds = vocab.Vectors(name = 'custom_embeddings/weights.txt',
-                      cache = 'codebert_embeds',
-                      unk_init = torch.Tensor.normal_) 
-  SRC.build_vocab(train_data, 
-                     max_size = MAX_VOCAB_SIZE, 
-                     vectors = custom_embeddings_semantic_encoder
-                   ) 
+    codebert_embeds = torch.from_numpy(np.loadtxt('custom_embeddings/weights.txt'))
   TRG.build_vocab(train_data, 
                      max_size = MAX_VOCAB_SIZE 
                      #vectors = custom_embeddings_decoder
@@ -96,15 +90,15 @@ def run_seq2seq(args):
   if not args.lam and not args.ner:
     dim = 0
     if args.codebert:
-      dim = 767
+      dim = 768
   elif not args.lam:
     dim = int(dim - args.embedding_size/2)
     if args.codebert:
-      dim += 767
+      dim += 768
   elif not args.ner:
     dim = int(dim - args.embedding_size/2)
     if args.codebert:
-      dim += 767 
+      dim += 768 
   if dim == 0:
     attn = Attention(args.hidden_dimension, args.hidden_dimension)
     enc = Encoder(INPUT_DIM, args.embedding_size, args.hidden_dimension, args.hidden_dimension, args.dropout)
@@ -130,11 +124,7 @@ def run_seq2seq(args):
 	  		   )
     embeddings_enc2 = SRC.vocab.vectors
   if args.codebert:
-    SRC.build_vocab(train_data, 
-				 max_size = MAX_VOCAB_SIZE, 
-				 vectors = codebert_embeds
-			   )
-    embeddings_enc3 = SRC.vocab.vectors
+    embeddings_enc3 = codebert_embeds
   default_embeds = True
   if args.lam:
     if default_embeds:
