@@ -70,7 +70,9 @@ def run_seq2seq(args):
   #*****************************************************************************************************
   print("test")
   if args.codebert:
-    codebert_embeds = torch.from_numpy(np.loadtxt('custom_embeddings/weights.txt'))
+    codebert_embeds = vocab.Vectors(name = 'custom_embeddings/weights.txt',
+                      cache = 'codebert_embeds',
+                      unk_init = torch.Tensor.normal_) 
   SRC.build_vocab(train_data, 
                      max_size = MAX_VOCAB_SIZE, 
                      vectors = custom_embeddings_semantic_encoder
@@ -129,7 +131,11 @@ def run_seq2seq(args):
 	  		   )
     embeddings_enc2 = SRC.vocab.vectors
   if args.codebert:
-    embeddings_enc3 = codebert_embeds
+    SRC.build_vocab(train_data, 
+				 max_size = MAX_VOCAB_SIZE, 
+				 vectors = codebert_embeds
+			   )
+    embeddings_enc3 = SRC.vocab.vectors
   default_embeds = True
   if args.lam:
     if default_embeds:
