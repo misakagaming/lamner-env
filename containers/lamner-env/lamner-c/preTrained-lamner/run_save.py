@@ -17,6 +17,11 @@ from six.moves import map
 from bleu import calculate_bleu
 import numpy as np
 
+def save_vocab(vocab, path):
+    with open(path, 'w+', encoding='utf-8') as f:     
+        for token, index in vocab.stoi.items():
+            f.write(f'{token}')
+            
 def run_save(args):
   set_seed()
   ##Loading parameters for the model
@@ -80,7 +85,13 @@ def run_save(args):
   TRG.build_vocab(train_data, 
                      max_size = MAX_VOCAB_SIZE 
                      #vectors = custom_embeddings_decoder
-                   )			   
+                   )
+
+  save_vocab(SRC.vocab, "vocab.code")  
+  save_vocab(TRG.vocab, "vocab.nl") 
+"""
+  
+                   
   #*****************************************************************************************************
   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
   train_iterator, valid_iterator, test_iterator = BucketIterator.splits(
@@ -157,6 +168,6 @@ def run_save(args):
       embeddings_enc4 = torch.cat([embeddings_enc4, embeddings_enc3], dim=1)
   if not default_embeds:    
     model.encoder.embedding.weight.data.copy_(embeddings_enc4)
-  np.savetxt("concat_weigths.txt", embeddings_enc4.cpu().detach().numpy())
+  np.savetxt("concat_weigths.txt", embeddings_enc4.cpu().detach().numpy())"""
 #if __name__ == '__main__':
 #  main()
