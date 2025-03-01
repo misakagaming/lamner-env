@@ -20,7 +20,7 @@ import numpy as np
 def save_vocab(vocab, path):
     with open(path, 'w+', encoding='utf-8') as f:     
         for token, index in vocab.stoi.items():
-            f.write(f'{token}')
+            f.write(f'{token}\n')
             
 def run_save(args):
   set_seed()
