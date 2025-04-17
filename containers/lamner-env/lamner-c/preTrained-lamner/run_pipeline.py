@@ -23,6 +23,7 @@ def main():
   set_seed()
   ##Loading parameters for the model
   parser = argparse.ArgumentParser(description="Setting hyperparameters for Lamner")
+  parser.add_argument("--seed", type=int, default=1234)
   parser.add_argument("--batch_size", type=int, default=16, help="Batch size to use for seq2seq model")
   parser.add_argument("--embedding_size", type=int, default=512, help="Embedding size to use for seq2seq model")
   parser.add_argument("--hidden_dimension", type=int, default=512, help="Embedding size to use for seq2seq model")

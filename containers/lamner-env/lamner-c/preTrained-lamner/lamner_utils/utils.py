@@ -202,7 +202,7 @@ def print_log(text):
     f.write(text+"\n")
   return
 
-def set_seed(SEED=1000):
+def set_seed(SEED=1234):
   random.seed(SEED)
   np.random.seed(SEED)
   torch.manual_seed(SEED)

@@ -18,7 +18,7 @@ from bleu import calculate_bleu
 import numpy as np
 
 def run_seq2seq(args):
-  set_seed()
+  set_seed(args.seed)
   ##Loading parameters for the model
   #parser = argparse.ArgumentParser(description="Setting hyperparameters for Lamner")
   #parser.add_argument("--batch_size", type=int, default=16, help="Batch size to use for seq2seq model")
