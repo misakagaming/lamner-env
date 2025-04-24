@@ -51,7 +51,7 @@ def main():
   
   #train_lm-> preprocess code, make correct directories
   print(args.infer)
-  if not(args.infer):
+  #if not(args.infer):
     #train_language_model(args)
     #train_ner_model(args)
     #get_embeds(args)
