@@ -177,6 +177,7 @@ def run_seq2seq(args):
   
   if not(args.infer):
     for epoch in range(args.epochs):
+      print("aaaaaaaaaa")
       if MIN_LR>optimizer.param_groups[0]['lr']:
         early_stop = True
         break
