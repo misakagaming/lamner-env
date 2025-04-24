@@ -58,10 +58,10 @@ def run_seq2seq(args):
   #*****************************************************************************************************
   print("embeds")
   custom_embeddings_semantic_encoder = vocab.Vectors(name = 'custom_embeddings/semantic_embeds.txt',
-                                      cache = None,
+                                      cache = 'custom_embeddings_semantic_encoder',
                                       unk_init = torch.Tensor.normal_) 
   custom_embeddings_syntax_encoder = vocab.Vectors(name = 'custom_embeddings/syntax_embeds.txt',
-                                      cache = None,
+                                      cache = "custom_embeddings_syntax_encoder",
                                      unk_init = torch.Tensor.normal_)
   #custom_embeddings_decoder = vocab.Vectors(name = 'custom_embeddings/decoder_embeddings.txt',
   #                                    cache = 'custom_embeddings_decoder',
@@ -71,7 +71,7 @@ def run_seq2seq(args):
   print("test")
   if args.codebert:
     codebert_embeds = vocab.Vectors(name = 'custom_embeddings/weights.txt',
-                      cache = None,
+                      cache = "codebert_embeds",
                       unk_init = torch.Tensor.normal_) 
   SRC.build_vocab(train_data, 
                      max_size = MAX_VOCAB_SIZE, 
